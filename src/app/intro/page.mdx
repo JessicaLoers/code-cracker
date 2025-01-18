@@ -1,0 +1,23 @@
+import SandpackWrapper from '../../components/SandpackWrapper';
+
+import SandpackWithConsole from '../../components/SandpackWithConsole';
+
+---
+
+title: Intro
+description: This a page.
+
+---
+
+## hello I am a markdown file
+
+<SandpackWrapper code={`console.info('Hello from Sandpack!')`} />
+
+# Sandpack with Console
+
+<SandpackWithConsole
+  code={`export default function App() {
+  console.log("Hello from the console!");
+  return <h1>Hello, Sandpack with Console!</h1>;
+}`}
+/>
