@@ -3,9 +3,9 @@ import nextra from 'nextra';
 const withNextra = nextra({
   // ... Other Nextra config options
   latex: true,
-  search: {
-    codeblocks: false,
-  },
+  // search: {
+  //   codeblocks: false,
+  // },
   contentDirBasePath: '/docs',
 });
 
