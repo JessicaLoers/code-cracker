@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Code Cracker 🥠
 
-## Getting Started
+Code Cracker is an interactive learning platform designed to teach JavaScript algorithms and programming concepts through practical, hands-on examples. Users can explore predefined examples, edit code, and see the output directly in their browser.
 
-First, run the development server:
+## Features
+
+- **Interactive Code Editor**: Powered by [Sandpack](https://sandpack.codesandbox.io/), allowing users to write, edit, and run JavaScript code in a sandboxed environment.
+- **Dynamic Examples**: Explore various algorithms and programming concepts with predefined examples.
+- **Custom Console**: View output directly in the embedded console.
+- **Customizable Exercises**: Add or modify exercises with ease.
+
+## Tech Stack
+
+- **Frontend Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Markdown Support**: [Nextra 4](https://nextra.site/) for documentation and content management
+- **Code Execution**: [Sandpack React](https://sandpack.codesandbox.io/) for interactive coding environments
+- **Styling**: Tailwind CSS for utility-first CSS styling
+- **Search**: Pagefind for fast, client-side search
+
+## Usage
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/code-cracker.git
+   cd code-cracker
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build the application:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Post-Build Search Indexing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Generate the search index:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run postbuild
+```
 
-## Deploy on Vercel
+### Example Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To add a new exercise:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a new function in `src/sandpack-files/exampleFunctions.js`:
+
+   ```javascript
+   export const newExample = `
+   function newFeature() {
+     console.log('This is a new example!');
+   }
+   newFeature();
+   `;
+   ```
+
+2. Use it in a Sandpack component:
+
+   ```jsx
+   import { newExample } from '../sandpack-files/exampleFunctions';
+
+   <SandpackWrapper code={newExample} />;
+   ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## Acknowledgments
+
+- [Nextra](https://nextra.site/) for the powerful documentation framework
+- [Sandpack](https://sandpack.codesandbox.io/) for the interactive coding environment
+- [Pagefind](https://pagefind.app/) for fast search functionality

@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  SandpackProvider,
-  SandpackLayout,
-  SandpackCodeEditor,
-  SandpackConsole,
-  SandpackPreview,
-  Sandpack,
-} from '@codesandbox/sandpack-react';
+import { Sandpack } from '@codesandbox/sandpack-react';
 import { gruvboxLight } from '@codesandbox/sandpack-themes';
 
 import {
@@ -17,7 +10,7 @@ import {
   functionToString,
 } from '../sandpackfiles/examplefunctions';
 
-export default function SandpackWrapper({ selectedFunction = 'helloWorld' }) {
+export default function SandpackWrapper({ selectedFunction = 'greetUser' }) {
   const files = {
     '/index.js': {
       code: functionToString(
@@ -42,11 +35,11 @@ export default function SandpackWrapper({ selectedFunction = 'helloWorld' }) {
         layout: 'console',
         showTabs: true,
         closableTabs: true,
-        showLineNumbers: true, // default - true
-        showInlineErrors: true, // default - false
-        wrapContent: true, // default - false
-        editorHeight: 280, // default - 300
-        editorWidthPercentage: 60, // default - 50
+        showLineNumbers: true,
+        showInlineErrors: true,
+        wrapContent: true,
+        editorHeight: 280,
+        editorWidthPercentage: 60,
       }}
     />
   );
