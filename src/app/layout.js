@@ -1,7 +1,7 @@
 // https://the-guild.dev/blog/nextra-4?utm_source=nextra.site&utm_campaign=blog_page&utm_content=blog_link
 
 import { Footer, Layout, Navbar, Link } from 'nextra-theme-docs';
-import { Banner } from 'nextra/components';
+import { Banner, Search } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import './globals.css';
 
@@ -23,14 +23,24 @@ export default async function RootLayout({ children }) {
   );
   const navbar = <Navbar logo={<b>Code Cracker 🥠</b>} logoLink="/" />;
   const footer = <Footer>MIT © Nextra.</Footer>;
-
-  //
+  const search = (
+    <Search
+      emptyResult="Hans"
+      searchOptions={{
+        preload: false,
+        verbose: true,
+        filters: {},
+        sort: {},
+      }}
+    />
+  );
 
   return (
     <html lang="en" className={theme} style={{ colorScheme: theme }}>
       <body>
         <Layout
           darkMode={true}
+          search={search}
           banner={banner}
           navbar={navbar}
           pageMap={pageMap}

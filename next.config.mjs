@@ -6,7 +6,7 @@ const withNextra = nextra({
   // search: {
   //   codeblocks: false,
   // },
-  contentDirBasePath: '/docs',
+  // contentDirBasePath: '/docs',
 });
 
 // You can include other Next.js configuration options here, in addition to Nextra settings:

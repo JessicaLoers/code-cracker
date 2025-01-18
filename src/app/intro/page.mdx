@@ -1,6 +1,4 @@
-import SandpackWrapper from '../../components/SandpackWrapper';
-
-import SandpackWithConsole from '../../components/SandpackWithConsole';
+import SandpackConsole from '../../components/SandpackConsole';
 
 ---
 
@@ -11,13 +9,10 @@ description: This a page.
 
 ## hello I am a markdown file
 
-<SandpackWrapper code={`console.info('Hello from Sandpack!')`} />
-
 # Sandpack with Console
 
-<SandpackWithConsole
-  code={`export default function App() {
-  console.log("Hello from the console!");
-  return <h1>Hello, Sandpack with Console!</h1>;
-}`}
-/>
+<SandpackConsole />
+
+This is a custom component that wraps the Sandpack component
+and adds a console to the bottom of the editor
+It's defined in src/components/SandpackWithConsole.js

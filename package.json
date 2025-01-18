@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "postbuild": "pagefind --site .next/server/app/docs --output-path public/_pagefind",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.15.0",
+    "@codesandbox/sandpack-react": "^2.19.10",
     "@codesandbox/sandpack-themes": "^2.0.21",
     "next": "15.1.4",
     "nextra": "^4.0.3",
