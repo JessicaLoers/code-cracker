@@ -1,6 +1,6 @@
 const metaGlobal = {
   index: {
-    title: 'Home',
+    title: "Cracker's Home",
   },
   intro: {
     title: 'Introduction',
