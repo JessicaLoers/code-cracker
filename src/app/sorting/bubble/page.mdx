@@ -1,0 +1,128 @@
+---
+title: 'Bubble Sort'
+description: 'A friend of the naive sorting algorithms.'
+---
+
+import { Callout } from 'nextra/components';
+import CodeEditor from '../../../components/CodeEditor';
+
+<CodeEditor code={`console.log("hello")`} />
+
+# Bubble Sort
+
+## The Simplest Sorting Algorithm
+
+Bubble Sort is often considered the `hello world` of sorting algorithms. While not the most efficient for large datasets, it's a great way to understand how sorting works due to its simple and intuitive approach.
+
+### How Does It Work?
+
+Bubble Sort repeatedly compares adjacent elements in an `array` and swaps them if they are in the wrong order. This process is repeated until the entire `array` is sorted.
+
+<Callout emoji="🥠">
+  Bubble Sort gets its name from the way the largest (or smallest) values "bubble" to the top (or
+  bottom) with each pass.
+</Callout>
+
+### Think Through the Algorithm
+
+Imagine you have a row of numbered cards, and your goal is to arrange them in ascending order.
+
+1. Start with the first card and compare it with the card next to it.
+2. If the first card is larger than the next, swap them so that the smaller card comes first.
+3. Move to the next pair of cards and repeat the comparison and swapping.
+4. Once you've reached the end of the row, the largest card will be in its correct position.
+5. Repeat the process for the remaining unsorted cards, ignoring the already sorted ones at the end.
+6. Keep going until no swaps are needed in a full pass, meaning the cards are fully sorted - **congratulations, you've cracked the code!**
+
+---
+
+### Bubble Sort Using the Card Example
+
+#### What Happens Step by Step in Plain Language?
+
+We are sorting cards with the numbers `[4, 2, 7, 1]`:
+
+1. **Look at the first card**, `4`, and compare it to the next card, `2`:
+
+   - `4 > 2`: Swap the cards.
+   - The cards now look like: `[2, 4, 7, 1]`.
+
+2. **Move to the next card**, `4`, and compare it with `7`:
+
+   - `4 < 7`: No swap is needed.
+
+3. **Compare `7` with the last card**, `1`:
+
+   - `7 > 1`: Swap the cards.
+   - The cards now look like: `[2, 4, 1, 7]`.
+
+4. The largest number, `7`, has now **bubbled** to the top:
+
+   - Ignore it in the next round.
+
+5. **Repeat the steps** for the remaining unsorted cards `[2, 4, 1]` until the list is fully sorted.
+
+---
+
+### Building the Code Step by Step
+
+#### Simulating a Single Comparison and Swap
+
+This block shows how to compare the first two cards and swap them if needed:
+
+```js copy
+let cards = [4, 2, 7, 1];
+
+// Compare the first two cards
+if (cards[0] > cards[1]) {
+  // Swap cards 0 and 1
+  let temp = cards[0];
+  cards[0] = cards[1];
+  cards[1] = temp;
+}
+
+console.log(cards); // Output: [2, 4, 7, 1]
+```
+
+#### Loop Through All Pairs in a Single Round
+
+In this block, we iterate through the array once, comparing each pair of adjacent cards. If two cards are out of order, we swap them. This ensures the largest card in this pass moves closer to its correct position.
+
+```js copy
+let cards = [4, 2, 7, 1];
+
+// Loop through the array to process each pair of adjacent cards
+for (let i = 0; i < cards.length - 1; i++) {
+  // Compare the current card with the next card
+  if (cards[i] > cards[i + 1]) {
+    // Swap the cards if they are out of order
+    let temp = cards[i];
+    cards[i] = cards[i + 1];
+    cards[i + 1] = temp;
+  }
+}
+
+console.log(cards); // Output: [2, 4, 1, 7]
+```
+
+#### The Full Bubble Sort Algorithm
+
+Here's the complete algorithm, which keeps sorting until the entire list is ordered:
+
+```js copy
+let cards = [4, 2, 7, 1];
+
+for (let round = 0; round < cards.length; round++) {
+  for (let i = 0; i < cards.length - 1 - round; i++) {
+    // Compare adjacent cards
+    if (cards[i] > cards[i + 1]) {
+      // Swap the cards
+      let temp = cards[i];
+      cards[i] = cards[i + 1];
+      cards[i + 1] = temp;
+    }
+  }
+}
+
+console.log(cards); // Output: [1, 2, 4, 7]
+```
