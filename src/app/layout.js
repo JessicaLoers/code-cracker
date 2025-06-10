@@ -37,7 +37,7 @@ export default async function RootLayout({ children }) {
     '🤞 More crackers coming soon! 🤞',
   ];
   const randomMessage = bannerMessages[Math.floor(Math.random() * bannerMessages.length)];
-  const banner = <Banner dismissible={false}>{randomMessage}</Banner>;
+  // const banner = <Banner dismissible={false}>{randomMessage}</Banner>;
 
   const navbar = <Navbar logo={<b>Code Cracker 🥠</b>} logoLink="/" />;
   const footer = (
@@ -76,7 +76,7 @@ export default async function RootLayout({ children }) {
           docsRepositoryBase="https://github.com/jessicaloers/code-cracker/tree/main/"
           darkMode={true}
           search={search}
-          banner={<div role="banner">{banner}</div>}
+          // banner={<div role="banner">{banner}</div>}
           navbar={navbar}
           pageMap={pageMap}
           footer={<div role="contentinfo">{footer}</div>}
